@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "BDUd8K46oAvdJm5YWZRY0MxwHcDh+4T61Mi4e/uQriU=",
+  "Source": "AppleStore.Api",
+  "BasePath": "_content/AppleStore.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
