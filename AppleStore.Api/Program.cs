@@ -40,5 +40,10 @@ var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
 app.MapGet("/apples", () => apples); 
+// rendering the product objects
+app.MapGet("/apples/{id}", (int id) => apples.Find(apple => apple.Id == id));
+// Get item by id number.
+// app.MapGet("/apples/{name}", (string name) =>apples.Find(apple => apple.Name == name));
+// get item by item name
 
 app.Run();
