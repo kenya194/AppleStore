@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AppleStore.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+07bc32381b93aff23ae45768a21c2f72d1b6b1d7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+237e961797dcb8c150273fd3c0e9b2ae49610271")]
 [assembly: System.Reflection.AssemblyProductAttribute("AppleStore.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AppleStore.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

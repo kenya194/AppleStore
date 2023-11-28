@@ -39,6 +39,6 @@ List<Apple> apples = new()
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.MapGet("/apples", () => apples);
+app.MapGet("/apples", () => apples); 
 
 app.Run();
