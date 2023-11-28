@@ -1,5 +1,7 @@
 using AppleStore.Api.Entities;
 
+const String GetAppleEndPointName = "GetApple";
+
 List<Apple> apples = new()
 {
     new Apple()
@@ -41,8 +43,27 @@ var app = builder.Build();
 
 app.MapGet("/apples", () => apples); 
 // rendering the product objects
-app.MapGet("/apples/{id}", (int id) => apples.Find(apple => apple.Id == id));
+app.MapGet("/apples/{id}", (int id) => 
+{
+        Apple? apple = apples.Find(apple => apple.Id == id);
+
+        if (apple is null)
+        {
+            return Results.NotFound();
+        }
+
+        return Results.Ok(apple);
+})
+.WithName(GetAppleEndPointName);
 // Get item by id number.
+app.MapPost("/apples", (Apple apple) =>
+{
+    apple.Id = apples.Max(apple => apple.Id) + 1;
+    apples.Add(apple);
+
+    return Results.CreatedAtRoute(GetAppleEndPointName, new {id = apple.Id}, apple);
+    // get maximum number and add the new product. 
+});
 // app.MapGet("/apples/{name}", (string name) =>apples.Find(apple => apple.Name == name));
 // get item by item name
 
