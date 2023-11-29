@@ -45,7 +45,7 @@ app.MapGet("/apples", () => apples);
 // rendering the product objects
 app.MapGet("/apples/{id}", (int id) => 
 {
-        Apple? apple = apples.Find(apple => apple.Id == id);
+      Apple? apple = apples.Find(apple => apple.Id == id);
 
         if (apple is null)
         {
@@ -62,7 +62,7 @@ app.MapPost("/apples", (Apple apple) =>
     apples.Add(apple);
 
     return Results.CreatedAtRoute(GetAppleEndPointName, new {id = apple.Id}, apple);
-    // get maximum number and add the new product. 
+    // get maximum number and add the new product. (we are creating a resource)
 });
 // app.MapGet("/apples/{name}", (string name) =>apples.Find(apple => apple.Name == name));
 // get item by item name
