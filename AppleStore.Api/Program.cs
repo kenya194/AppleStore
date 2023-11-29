@@ -84,7 +84,10 @@ app.MapPut("/apples/{Id}", (int id, Apple updatedApple) =>
         existingApple.ImageUri = updatedApple.ImageUri;
 
         return Results.NoContent();
+        //updating a resource thus the apple product.
 
 });
+
+//Next we are going to implement the delete function.
 
 app.Run();
