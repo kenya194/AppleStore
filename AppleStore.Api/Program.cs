@@ -87,7 +87,17 @@ app.MapPut("/apples/{Id}", (int id, Apple updatedApple) =>
         //updating a resource thus the apple product.
 
 });
-
 //Next we are going to implement the delete function.
+app.MapDelete("/apples/{Id}", (int id) => 
+{
+      Apple? apple = apples.Find(apple => apple.Id == id);
+
+        if (apple is not null)
+        {
+            apples.Remove(apple);
+        }
+
+        return Results.NoContent();
+});
 
 app.Run();
