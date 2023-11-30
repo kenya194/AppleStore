@@ -41,9 +41,12 @@ List<Apple> apples = new()
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.MapGet("/apples", () => apples); 
+var group = app.MapGroup("/apples");
+//we are using the group to route the app
+group.MapGet("/", () => apples);
+
 // rendering the product objects
-app.MapGet("/apples/{id}", (int id) => 
+group.MapGet("/{id}", (int id) => 
 {
       Apple? apple = apples.Find(apple => apple.Id == id);
 
@@ -59,7 +62,7 @@ app.MapGet("/apples/{id}", (int id) =>
 // app.MapGet("/apples/{name}", (string name) =>apples.Find(apple => apple.Name == name));
 // get item by item name
 
-app.MapPost("/apples", (Apple apple) =>
+group.MapPost("/", (Apple apple) =>
 {
     apple.Id = apples.Max(apple => apple.Id) + 1;
     apples.Add(apple);
@@ -68,7 +71,7 @@ app.MapPost("/apples", (Apple apple) =>
     // get maximum number and add the new product. (we are creating a resource)
 });
 
-app.MapPut("/apples/{Id}", (int id, Apple updatedApple) =>
+group.MapPut("/{Id}", (int id, Apple updatedApple) =>
  {
         Apple? existingApple = apples.Find(apple => apple.Id == id);
 
@@ -88,7 +91,7 @@ app.MapPut("/apples/{Id}", (int id, Apple updatedApple) =>
 
 });
 //Next we are going to implement the delete function.
-app.MapDelete("/apples/{Id}", (int id) => 
+group.MapDelete("/{Id}", (int id) => 
 {
       Apple? apple = apples.Find(apple => apple.Id == id);
 
