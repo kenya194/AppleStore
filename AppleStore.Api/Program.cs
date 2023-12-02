@@ -41,7 +41,9 @@ List<Apple> apples = new()
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-var group = app.MapGroup("/apples");
+var group = app.MapGroup("/apples")
+               .WithParameterValidation();
+               //the parameter validation was incorporated from the resource in the minimal api extension from nuget (its function is to validate the inputs from the data annotations => required, stringlength etc) 
 //we are using the group to route the app
 group.MapGet("/", () => apples);
 

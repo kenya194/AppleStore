@@ -24,3 +24,9 @@ C:\Users\USER\Desktop\AppleStore\AppleStore.Api\obj\Debug\net8.0\AppleStore.Api.
 C:\Users\USER\Desktop\AppleStore\AppleStore.Api\obj\Debug\net8.0\AppleStore.Api.genruntimeconfig.cache
 C:\Users\USER\Desktop\AppleStore\AppleStore.Api\obj\Debug\net8.0\ref\AppleStore.Api.dll
 C:\Users\USER\Desktop\AppleStore\AppleStore.Api\obj\Debug\net8.0\AppleStore.Api.sourcelink.json
+C:\Users\USER\Desktop\AppleStore\AppleStore.Api\obj\Debug\net8.0\AppleStore.Api.csproj.AssemblyReference.cache
+C:\Users\USER\Desktop\AppleStore\AppleStore.Api\obj\Debug\net8.0\AppleStore.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\USER\Desktop\AppleStore\AppleStore.Api\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\USER\Desktop\AppleStore\AppleStore.Api\bin\Debug\net8.0\MinimalApis.Extensions.dll
+C:\Users\USER\Desktop\AppleStore\AppleStore.Api\bin\Debug\net8.0\MiniValidation.dll
+C:\Users\USER\Desktop\AppleStore\AppleStore.Api\obj\Debug\net8.0\AppleStore.Api.csproj.CopyComplete

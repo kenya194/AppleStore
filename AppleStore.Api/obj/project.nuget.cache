@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "dfjZ6A8RIvPAQaixc/yHbkGaZXjfTcIanjPmoZgNBUH/6+DPEX4IQ3URYE93m5ONDKfbgyC57kE9RdoLs/cr7g==",
+  "dgSpecHash": "r6s/p3u3wkOWQz9Lbu87OlS0gMLXhL2RrC8BP+P29Qvva2EiPjzAypngqF+K7ZnT7X42IzOXngxnZ8jGeNgueQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\USER\\Desktop\\AppleStore\\AppleStore.Api\\AppleStore.Api.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\minimalapis.extensions\\0.11.0\\minimalapis.extensions.0.11.0.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\minivalidation\\0.8.0\\minivalidation.0.8.0.nupkg.sha512"
+  ],
   "logs": []
 }
