@@ -1,4 +1,5 @@
 using AppleStore.Api.Entities;
+using AppleStore.Api.Repositories;
 
 namespace AppleStore.Api.Endpoints;
 
@@ -6,19 +7,21 @@ public static class ApplesEndpoints
 {
     const String GetAppleEndPointName = "GetApple";
 
-
     public static RouteGroupBuilder MapApplesEndpoints(this IEndpointRouteBuilder routes)
     {
+        InMemApplesRepository repository = new();
+
         var group = routes.MapGroup("/apples")
                .WithParameterValidation();
                //the parameter validation was incorporated from the resource in the minimal api extension from nuget (its function is to validate the inputs from the data annotations => required, stringlength etc) 
 //we are using the group to route the app
-group.MapGet("/", () => apples);
+
+group.MapGet("/", () => repository.GetAll());
 
 // rendering the product objects
 group.MapGet("/{id}", (int id) => 
 {
-      Apple? apple = apples.Find(apple => apple.Id == id);
+      Apple? apple = repository.Get(id);
 
         if (apple is null)
         {
@@ -34,8 +37,7 @@ group.MapGet("/{id}", (int id) =>
 
 group.MapPost("/", (Apple apple) =>
 {
-    apple.Id = apples.Max(apple => apple.Id) + 1;
-    apples.Add(apple);
+    repository.Create(apple);
 
     return Results.CreatedAtRoute(GetAppleEndPointName, new {id = apple.Id}, apple);
     // get maximum number and add the new product. (we are creating a resource)
@@ -43,7 +45,7 @@ group.MapPost("/", (Apple apple) =>
 
 group.MapPut("/{Id}", (int id, Apple updatedApple) =>
  {
-        Apple? existingApple = apples.Find(apple => apple.Id == id);
+        Apple? existingApple = repository.Get(id);
 
         if (existingApple is null)
         {
@@ -56,6 +58,8 @@ group.MapPut("/{Id}", (int id, Apple updatedApple) =>
         existingApple.Price = updatedApple.Price;
         existingApple.ImageUri = updatedApple.ImageUri;
 
+        repository.Update(existingApple);
+
         return Results.NoContent();
         //updating a resource thus the apple product.
 
@@ -63,11 +67,11 @@ group.MapPut("/{Id}", (int id, Apple updatedApple) =>
 //Next we are going to implement the delete function.
 group.MapDelete("/{Id}", (int id) => 
 {
-      Apple? apple = apples.Find(apple => apple.Id == id);
+      Apple? apple = repository.Get(id);
 
         if (apple is not null)
         {
-            apples.Remove(apple);
+            repository.Delete(id);
         }
 
         return Results.NoContent();

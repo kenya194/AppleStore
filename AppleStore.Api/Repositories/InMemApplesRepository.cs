@@ -4,7 +4,7 @@ namespace AppleStore.Api.Repositories;
 
 public class InMemApplesRepository
 {
-     static readonly List<Apple> apples = new()
+     private readonly List<Apple> apples = new()
 {
     new Apple()
     {
@@ -65,5 +65,10 @@ public class InMemApplesRepository
         apples[index] = updatedApple;
     }
 
+    public void Delete (int id)
+    {
+        var index = apples.FindIndex(apple => apple.Id == id);
+        apples.RemoveAt(index);
+    }
     //delete
 }
