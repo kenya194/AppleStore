@@ -6,41 +6,7 @@ public static class ApplesEndpoints
 {
     const String GetAppleEndPointName = "GetApple";
 
- static List<Apple> apples = new()
-{
-    new Apple()
-    {
-        Id = 1,
-        Name = "Iphone X",
-        Storage = "64gb",
-        Price = 2500.00M,
-        ImageUri = "https://placehold.co/100"
-    },
-    new Apple()
-    {
-        Id = 2,
-        Name = "Iphone X",
-        Storage = "256gb",
-        Price = 2700.00M,
-        ImageUri = "https://placehold.co/100"
-    },
-    new Apple()
-    {
-        Id = 3,
-        Name = "Iphone XR",
-        Storage = "64gb",
-        Price = 2600.00M,
-        ImageUri = "https://placehold.co/100"
-    },
-    new Apple()
-    {
-        Id = 4,
-        Name = "Iphone XR",
-        Storage = "128gb",
-        Price = 2800.00M,
-        ImageUri = "https://placehold.co/100"
-    }
-};
+
     public static RouteGroupBuilder MapApplesEndpoints(this IEndpointRouteBuilder routes)
     {
         var group = routes.MapGroup("/apples")
