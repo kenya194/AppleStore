@@ -9,17 +9,15 @@ public static class ApplesEndpoints
 
     public static RouteGroupBuilder MapApplesEndpoints(this IEndpointRouteBuilder routes)
     {
-        InMemApplesRepository repository = new();
-
         var group = routes.MapGroup("/apples")
                .WithParameterValidation();
                //the parameter validation was incorporated from the resource in the minimal api extension from nuget (its function is to validate the inputs from the data annotations => required, stringlength etc) 
 //we are using the group to route the app
 
-group.MapGet("/", () => repository.GetAll());
+group.MapGet("/", (IApplesRepository repository) => repository.GetAll());
 
 // rendering the product objects
-group.MapGet("/{id}", (int id) => 
+group.MapGet("/{id}", (IApplesRepository repository, int id) => 
 {
       Apple? apple = repository.Get(id);
 
@@ -35,7 +33,7 @@ group.MapGet("/{id}", (int id) =>
 // app.MapGet("/apples/{name}", (string name) =>apples.Find(apple => apple.Name == name));
 // get item by item name
 
-group.MapPost("/", (Apple apple) =>
+group.MapPost("/", (IApplesRepository repository, Apple apple) =>
 {
     repository.Create(apple);
 
@@ -43,7 +41,7 @@ group.MapPost("/", (Apple apple) =>
     // get maximum number and add the new product. (we are creating a resource)
 });
 
-group.MapPut("/{Id}", (int id, Apple updatedApple) =>
+group.MapPut("/{Id}", (IApplesRepository repository, int id, Apple updatedApple) =>
  {
         Apple? existingApple = repository.Get(id);
 
@@ -65,7 +63,7 @@ group.MapPut("/{Id}", (int id, Apple updatedApple) =>
 
 });
 //Next we are going to implement the delete function.
-group.MapDelete("/{Id}", (int id) => 
+group.MapDelete("/{Id}", (IApplesRepository repository, int id) => 
 {
       Apple? apple = repository.Get(id);
 
