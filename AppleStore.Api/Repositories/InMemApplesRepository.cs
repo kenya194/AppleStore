@@ -64,6 +64,7 @@ public class InMemApplesRepository : IApplesRepository
         var index = apples.FindIndex(apple => apple.Id == updatedApple.Id);
         apples[index] = updatedApple;
     }
+    // make changes to existing entity.
 
     public void Delete(int id)
     {
